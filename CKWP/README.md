@@ -1,5 +1,7 @@
 # Czysty kod w Pythonie
-Twórz wydainy i łatwy w utrzymaniu kod
+Czysty kod w Pythonie. Twórz wydajny i łatwy w utrzymaniu kod. Wydanie II.
+Autor: Mariano Anaya 
+Data wydania książki drukowanej: 2022-03-22
 
 ## Docstring
 sphinx.ext.autodoc – Include documentation from docstrings
@@ -66,4 +68,15 @@ class Connector:
     def __init__(self, source):
         self.source = source
         self._timeout = 60
+```
+
+## Właściwości 
+* Nie pisz niestandardowych metod get_* i set_* dla wszystkich atrybótów obiektów. W wiekszoście 
+przypadków wystarczy pozostawić je jako zwykłe atrybuty. Jeśli chcesz zmodyfikować logikę podczas 
+pobierania lub modyfikowania atrybutu, użyj własciwości.
+* Zasada separacji mówi, że metoda obiektu powinna albo odpowiadać na coś albo coś robić, 
+ale nie jedno i drugie. Fukcje powinny robić jedną rzecz i tylko jedną rzecz. 
+```shell
+@property
+@longitude.setter
 ```
