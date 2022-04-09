@@ -34,7 +34,11 @@ class Coordinate:
 
     @latitude.setter
     def latitude(self, lat_value: float) -> None:
-        """Próba przypisania właściwej wartości do atrybutu wywoła błąd"""
+        """Próba przypisania niewłaściwej wartości do atrybutu wywoła błąd.
+           Gdy użytkownik zechce zmodyfikować wartości dowolnej z tych właściwości to
+           zostanie automatycznie(i przezroczyście wywołana metoda walidacji zadeklarowana za
+           pomocą dekoratora @latitude.setter)
+        """
         if -90 <= lat_value <= 90:
             self._latitude = lat_value
         else:
@@ -46,7 +50,11 @@ class Coordinate:
 
     @longitude.setter
     def longitude(self, long_value: float) -> None:
-        """Próba przypisania właściwej wartości do atrybutu wywoła błąd"""
+        """Próba przypisania niewłaściwej wartości do atrybutu wywoła błąd.
+           Gdy użytkownik zechce zmodyfikować wartości dowolnej z tych właściwości to
+           zostanie automatycznie(i przezroczyście wywołana metoda walidacji zadeklarowana za
+           pomocą dekoratora @longitude.setter)
+        """
         if -180 <= long_value <= 180:
             self._longitude = long_value
         else:
