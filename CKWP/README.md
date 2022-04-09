@@ -28,3 +28,17 @@ https://pylint.pycqa.org/en/latest/intro.html
 ```shell
 pylint CKWP/chapter_1.py
 ```
+
+## Formatowanie automatyczne 
+1. flake8
+2. black (https://github.com/psf/black)
+
+## Menadzer Kontekstów
+Menadżer kontekstu (ang. context manager) to obiekt, który odpowiednio zarządza danym zasobem, 
+zapewniając, że zostanie on odpowiednio zamknięty. Przez zamknięty mam tu na myśli czyszczenie, 
+zwalnianie zasobów oraz sprzątanie po wykonaniu bloku kodu.
+```shell
+with open("text.txt") as file:
+    lines = file.readlines()
+    print(lines)
+```
