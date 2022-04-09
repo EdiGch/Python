@@ -33,6 +33,8 @@ pylint CKWP/chapter_1.py
 1. flake8
 2. black (https://github.com/psf/black)
 
+# Kod Pythoniczny
+
 ## Menadzer Kontekstów
 Menadżer kontekstu (ang. context manager) to obiekt, który odpowiednio zarządza danym zasobem, 
 zapewniając, że zostanie on odpowiednio zamknięty. Przez zamknięty mam tu na myśli czyszczenie, 
@@ -41,4 +43,27 @@ zwalnianie zasobów oraz sprzątanie po wykonaniu bloku kodu.
 with open("text.txt") as file:
     lines = file.readlines()
     print(lines)
+```
+
+## Wyrażenia składowe i wyrażenia przypisania 
+Wyrażenia składane zaleca się stosować w celu tworzenia struktór danych za pomocą pojedynczej 
+instrukcji, zamiast z wykorzystaniem wielu instrukcji. Aby na przykład utworzyć listę zawierającą 
+wyniki obliczeń na liczbach
+```shell
+numbers = []
+for i in range(10):
+  numbers.append(run_calculayion(i))
+  
+numbers = [run_calculayion(i) for i in range(10)]
+```
+
+## Właściwości, atrybuty i różne typy metod obiektów
+Wszystkie właściwości i funkcje objektu w jezyku Python (3.10) są publiczne. 
+Nie istnieje mechanizm ścisłego egzekwowania ale istnieje pewne konwencje. Atrybut zaczynający się 
+od podkreślenia ma być prywatny.
+```shell
+class Connector:
+    def __init__(self, source):
+        self.source = source
+        self._timeout = 60
 ```
