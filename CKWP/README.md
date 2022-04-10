@@ -80,3 +80,35 @@ ale nie jedno i drugie. Fukcje powinny robić jedną rzecz i tylko jedną rzecz.
 @property
 @longitude.setter
 ```
+
+## Tworzenie klas o bardziej zwartej składni (@dataclass)
+* Dataclass pozwala na definiowanie klas z mniejszą ilością kodu i większą funkcjonalnością po 
+wyjęciu z pudełka.
+* Dekorator dataclass daje dostęp do:
+  * eprezentację obiektu w postaci ciągu, podczas printowania obiektu, otrzymasz czytelny format
+  * porównać dwie instancje klasy według atrybutu
+* Dekorator @dataclass niejawnie tworzy __init__
+* Wartości domyślne, Podobnie jak w przypadku reguł dotyczących parametrów, atrybuty z wartościami 
+domyślnymi muszą pojawić się po atrybutach bez wartości domyślnych.
+* Konwertuj na krotkę lub słownik, moduł dataclasses posiada funkcje astuple()i asdict(), 
+które konwertują instancję dataclass na krotkę i słownik: print(astuple(p)), print(asdict(p))
+* Służy frozen=Truedo definiowania klasy, której obiekty są niezmienne.
+* Użyj __post_init__metody, aby zainicjować atrybuty zależne od innych atrybutów.
+* Służy sort_indexdo określania atrybutów sortowania obiektów klasy danych.
+
+```shell
+from dataclasses import dataclass
+
+@dataclass
+class Person:
+    name: str
+    age: int
+    iq: int = 100
+    
+p1 = Person('John', 25)
+p2 = Person('John', 25)
+print(p1 == p2)
+    
+print(astuple(p))
+print(asdict(p))
+```
