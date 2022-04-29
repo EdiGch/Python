@@ -44,3 +44,23 @@ pip show                        # wyświetla szczegóły na temat pakietu
 pip freeze                      # wyświetla listę zainstalowanych pakietów w formacie plików requirements.txt
 pip freeze > requirements.txt   # Zapisuje w pliku listę zainstalowanych pakietów
 pip install -r requirements.txt # instaluje zależności z pliku requirements.txt
+```
+
+## Pipenv Wprowadzenie
+
+* Instalacja
+```shell
+pip install pipenv
+```
+
+* Wejście do powłoki w środowisku wirtualnym, aby odizolować rozwój aplikacji.
+Stworzy to środowisko wirtualne, jeśli jeszcze nie istnieje. Pipenv tworzy wszystkie twoje 
+wirtualne środowiska w domyślnej lokalizacji. 
+```shell
+pipenv shell
+```
+
+* Instalacja paketu
+```shell
+pipenv install djangorestframework
+```
