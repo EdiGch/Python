@@ -70,6 +70,36 @@ class Connector:
         self._timeout = 60
 ```
 
+* Metoda getattr()zwraca wartość nazwanego atrybutu obiektu. Jeśli nie zostanie znaleziony,
+zwraca domyślną wartość dostarczoną do funkcji.
+```shell
+class Person:
+    age = 23
+    name = "Adam"
+
+person = Person()
+print('The age is:', getattr(person, "age"))
+print('The age is:', person.age)
+
+Wiek to: 23
+Wiek to: 23
+```
+
+* Funkcja setattr()ustawia wartość atrybutu obiektu.
+```shell
+class Person:
+    name = 'Adam'
+    
+p = Person()
+print('Before modification:', p.name)
+# setting name to 'John'
+setattr(p, 'name', 'John')
+print('After modification:', p.name)
+
+Przed modyfikacją: Adam
+Po modyfikacji: John
+```
+
 ## Właściwości 
 * Nie pisz niestandardowych metod get_* i set_* dla wszystkich atrybótów obiektów. W wiekszoście 
 przypadków wystarczy pozostawić je jako zwykłe atrybuty. Jeśli chcesz zmodyfikować logikę podczas 
