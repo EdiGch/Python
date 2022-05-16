@@ -2,12 +2,14 @@ from typing import Final
 
 
 class Fild:
+    FILD_PHONE: Final[str] = "phone"
+    FILD_NAME: Final[str] = "name"
     _FILDS_CONFIGURATION: Final[dict] = {
-        "phone": {
+        FILD_PHONE: {
             "name": "phone",
             "type": "str",
         },
-        "name": {
+        FILD_NAME: {
             "name": "name",
             "type": "str",
         },
@@ -22,15 +24,15 @@ class Fild:
     def name(self) -> str:
         return self._name
 
-    def check_name(self, filds_name: str) -> None:
+    def check_name(self, fild_name: str) -> None:
         """Próba przypisania niewłaściwej wartości do atrybutu wywoła błąd."""
-        if filds_name in self._FILDS_CONFIGURATION:
-            self._name = filds_name
+        if fild_name in self._FILDS_CONFIGURATION:
+            self._name = fild_name
         else:
-            raise ValueError(f"{filds_name} is an invalid value for name")
+            raise ValueError(f"{fild_name} is an invalid value for name")
 
     def get_field_configuration(self) -> dict:
         return self._FILDS_CONFIGURATION.get(self.name)
 
     def __repr__(self):
-        return f"Filds('{self._name}')"
+        return f"Fild('{self._name}')"

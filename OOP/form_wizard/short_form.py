@@ -5,8 +5,8 @@ from fild import Fild
 class ShortForm:
     _name = "short-form"
     _filds = [
-        Fild("name"),
-        Fild("phone"),
+        Fild(Fild.FILD_NAME),
+        Fild(Fild.FILD_PHONE),
     ]
 
     @property
