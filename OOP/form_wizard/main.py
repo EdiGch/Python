@@ -7,6 +7,8 @@ class Validate:
 
         forms_list = forms_types_obj.get_available_field()
 
+        get_one = forms_types_obj.get_field_configuration("short-form")
+
         if value in forms_types_obj.get_available_forms():
             return value
         else:
@@ -20,7 +22,6 @@ if __name__ == "__main__":
 
     list_forms = [
         'short-form',
-        'press-form',
     ]
 
     for list_form in list_forms:
