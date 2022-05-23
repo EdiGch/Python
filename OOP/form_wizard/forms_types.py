@@ -13,27 +13,17 @@ class FormsTypes:
 
     def get_available_forms(self) -> List[str]:
         """Zwraca listę nazw dostępnych formularzy"""
-        list_available_forms = []
-        for form in self.get_forms_types:
-            list_available_forms.append(form.get_name)
-
-        return list_available_forms
+        return [form.get_name for form in self.get_forms_types]
 
     def get_available_forms_str(self) -> str:
         """Zwraca stringa z nazwami dostępnych formularzy oddzielone przecinkami"""
-        list_available_forms = []
-        for form in self.get_forms_types:
-            list_available_forms.append(form.get_name)
+        list_available_forms = [form.get_name for form in self.get_forms_types]
 
         return ", ".join([str(x) for x in list_available_forms])
 
     def get_available_field(self) -> dict[str, list]:
         """Tworzy dicta, który zawiera nazwę formularza a w nim listę dostępnych pól"""
-        dict_field_configuration = {}
-        for form in self.get_forms_types:
-            dict_field_configuration[form.get_name] = form.get_fields_configuration()
-
-        return dict_field_configuration
+        return {form.get_name: form.get_fields_configuration() for form in self.get_forms_types}
 
     def get_field_configuration(self, name_type_form: str) -> dict:
         """Pobiera konfigurację formularza na podstawie jego nazwy
