@@ -105,3 +105,41 @@ print("================================ BMW2 ================================\n"
 
 for tire2 in bmw2.tires:
     print(id(tire2)) # Pomimo dodania do instanji bmw1 nowego objektu, on również jest dostępny w bmw2
+
+
+
+# Hashable Book
+class Book:
+    """
+    Object Equality
+    """
+
+    def __init__(self, title, author, book_type, pages):
+        self.title = title
+        self.author = author
+        self.book_type = book_type
+        self.pages = pages
+
+    def __repr__(self):
+        """Information more dev/code user oriented"""
+        return f"Book('{self.title}', '{self.author}', '{self.book_type}', '{self.pages}')"
+
+    def __eq__(self, other):
+        if not isinstance(other, Book):
+            return False
+
+        return self.title == other.title and self.author == other.author
+
+    def __hash__(self):
+        return hash((self.title, self.author))
+
+
+a = Book("Antifragile", "Nassim Taleb", "Hardcover", 519)
+z = Book("Antifragile", "Nassim Taleb", "Hardcover", 519)
+
+print(a == z)
+
+print(id(a))
+print(id(z))
+print(hash(z))
+print(hash(z))
