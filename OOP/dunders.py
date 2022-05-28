@@ -206,3 +206,41 @@ print(a < z)
 print(a <= z)
 print(a > z)
 print(a >= z)
+
+
+class Warehouse:
+    def __init__(self):
+        self.rack = []
+
+    def add_book(self, book):
+        if not isinstance(book, Book):
+            raise TypeError("Only isinstance Book could be added to the BookShelf")
+
+        self.rack.append(book)
+
+    def __add__(self, other):
+        if not isinstance(other, Book):
+            raise TypeError("Only isinstance Book could be added to the BookShelf")
+
+        new_werehouse = Warehouse()
+
+        for book in self.rack:
+            new_werehouse.add_book(book)
+
+        new_werehouse.add_book(other)
+
+        return new_werehouse
+
+    def __getitem__(self, item):
+        return self.rack[item]
+
+
+
+warehouse = Warehouse()
+
+warehouse.add_book(a)
+warehouse.add_book(z)
+
+print(warehouse.__dict__)
+print(warehouse[0])
+
