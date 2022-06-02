@@ -214,13 +214,13 @@ class Warehouse:
 
     def add_book(self, book):
         if not isinstance(book, Book):
-            raise TypeError("Only isinstance Book could be added to the BookShelf")
+            raise TypeError("Only isinstance Book could be added to the Book")
 
         self.rack.append(book)
 
     def __add__(self, other):
         if not isinstance(other, Book):
-            raise TypeError("Only isinstance Book could be added to the BookShelf")
+            raise TypeError("__add__ Only isinstance Book could be added to the Book")
 
         new_werehouse = Warehouse()
 
@@ -235,12 +235,12 @@ class Warehouse:
         return self.rack[item]
 
 
-
 warehouse = Warehouse()
+a = Book("Antifragile", "Nassim Taleb", "Hardcover", 519)
+z = Book("How Asia", "Nassim Taleb", "Hardcover", 472)
 
 warehouse.add_book(a)
 warehouse.add_book(z)
 
 print(warehouse.__dict__)
 print(warehouse[0])
-
